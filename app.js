@@ -11,7 +11,7 @@ export const app = express()
 const _dirname = dirname(fileURLToPath(import.meta.url))
 
 // view engine setup
-app.set('views', join(_dirname, 'views'))
+app.set('views', [join(_dirname, '/views'), join(_dirname, '/views/facebook-views') ])
 app.set('view engine', 'pug')
 
 app.use(logger('dev'))

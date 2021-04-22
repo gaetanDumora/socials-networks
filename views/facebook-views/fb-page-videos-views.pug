@@ -1,11 +1,11 @@
-extends layout
+extends ../layout
 
 block content
-    include ./includes/navbar
+    include ../includes/navbar
     .container
         .row
             .col-sm
-            if pagePosts
+            if pageVideoViews.length > 0
                 table(class="table table-sm table-hover")
                     thead
                         tr
@@ -14,7 +14,7 @@ block content
                             th(scope="col") Value
                             th(scope="col") Description 
                     tbody
-                        each obj, index in pagePosts
+                        each obj, index in pageVideoViews
                             tr
                                 th(scope="row")
                                 td= obj.title

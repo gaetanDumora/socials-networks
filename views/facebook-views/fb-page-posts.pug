@@ -1,11 +1,11 @@
-extends layout
+extends ../layout
 
 block content
-    include ./includes/navbar
+    include ../includes/navbar
     .container
         .row
             .col-sm
-            if pagePostsEngagements.lenght > 0
+            if pagePosts
                 table(class="table table-sm table-hover")
                     thead
                         tr
@@ -14,7 +14,7 @@ block content
                             th(scope="col") Value
                             th(scope="col") Description 
                     tbody
-                        each obj, index in pagePostsEngagements
+                        each obj, index in pagePosts
                             tr
                                 th(scope="row")
                                 td= obj.title
