@@ -93,18 +93,18 @@ async function main() {
                         .sort(([,a],[,b]) => b-a)
                         .reduce((r, [k, v]) => ({ ...r, [k]: v }), {})   
         }
+        
         gendersDistribution = {
-        male: Object.entries(pageUserDemographics.age)
-                .filter(el => el[0].startsWith("M"))
-                .map(range => [range[0].replace('M.',""),range[1]])
-                .sort((a, b) => a[0].substring(0,2) - b[0].substring(0,2)),
-        female: Object.entries(pageUserDemographics.age)
-                .filter(el => el[0].startsWith("F"))
-                .map(range => [range[0].replace('F.',""),range[1]])
-                .sort((a, b) => a[0].substring(0,2) - b[0].substring(0,2)),
-        pie: Object.entries(pageUserDemographics.country)
-                // .map(el => Object.assign({name:el[0], y:el[1]}))
-        }
+                male: Object.entries(pageUserDemographics.age)
+                        .filter(el => el[0].startsWith("M"))
+                        .map(range => [range[0].replace('M.',""),range[1]])
+                        .sort((a, b) => a[0].substring(0,2) - b[0].substring(0,2)),
+                female: Object.entries(pageUserDemographics.age)
+                        .filter(el => el[0].startsWith("F"))
+                        .map(range => [range[0].replace('F.',""),range[1]])
+                        .sort((a, b) => a[0].substring(0,2) - b[0].substring(0,2)),
+                pie: Object.entries(pageUserDemographics.country)
+                }
         
         pageVideoViews = await facebookCallAPI("insights", insights.PageVideoViews)
         pageVideoPosts = await facebookCallAPI("insights", insights.PageVideoPosts)
